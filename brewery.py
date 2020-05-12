@@ -9,5 +9,4 @@ class Brewery_product_template(models.Model):
     ibu     =  fields.Float(string='Amertume (IBU)')
     abv     =  fields.Float(string='Teneur en alcool (ABV)')
     gluten  =  fields.Boolean(string='Contient du gluten' )
-    is_bio  =  fields.Boolean(string='Bière bio')
-    is_beer =  fields.Boolean(string='Est une bière')
+    abcde =  fields.Boolean(string='test')
