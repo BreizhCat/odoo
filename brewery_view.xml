@@ -17,8 +17,8 @@
 						<field name="ibu" />
 					</group>
 					<group id="beer_flag">
-						<field name="gluten" />
-						<field name="is_bio" />
+						<field name="has_gluten" />
+						<!--<field name="is_bio" />-->
 						</group>
 						</group>
 					</page>
