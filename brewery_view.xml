@@ -1,29 +1,22 @@
 <?xml version="1.0" encoding= "utf-8"?>
-
 <openerp>
 	<data>
 		<record id= "brewery_product_template_form_view" model= "ir.ui.view">
 			<field name="inherit_id" ref="product.product_template_only_form_view" />
 			<field name="model">product.template</field >
 			<field name="arch" type= "xml">
-				<field name="categ_id" position="after">
-					<!--<field name="is_beer" />-->
-				</field>
 				<page name="sales" position="after">
-					<page name="brewery" string="Informations"><!-- attrs="{'invisible': [('is_beer','=',False)]}" modifiers="{'invisible':[['is_beer','=',False]]}">-->
-					<group id="beer_infos">
-					<group id="beer_info">
-						<field name="abv" />
-						<field name="ibu" />
-					</group>
-					<group id="beer_flag">
-						<field name="has_gluten" />
-						<!--<field name="is_bio" />-->
-						</group>
+					<page name="brewery" string="Détails bière">
+						<group id="beer_infos">
+							<field name="brewery_is_beer" />
+							<field name="brewery_abv_level" attrs="{'invisible': [('brewery_is_beer','=',False)]}" modifiers="{'invisible':[['brewery_is_beer','=',False]]}" />
+							<field name="brewery_ibu_level" attrs="{'invisible': [('brewery_is_beer','=',False)]}" modifiers="{'invisible':[['brewery_is_beer','=',False]]}" />
+							<field name="brewery_has_gluten" attrs="{'invisible': [('brewery_is_beer','=',False)]}" modifiers="{'invisible':[['brewery_is_beer','=',False]]}" />
+							<field name="brewery_is_bio" attrs="{'invisible': [('brewery_is_beer','=',False)]}" modifiers="{'invisible':[['brewery_is_beer','=',False]]}" />
+							<field name="brewery_untappd_url" attrs="{'invisible': [('brewery_is_beer','=',False)]}" modifiers="{'invisible':[['brewery_is_beer','=',False]]}" />
 						</group>
 					</page>
 				</page>
-				
 			</field>
 		</record>
 	</data>
