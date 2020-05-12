@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding= "utf-8"?>
+
+<openerp>
+	<data>
+		<record id= "brewery_product_template_form_view" model= "ir.ui.view">
+			<field name="inherit_id" ref="product.product_template_only_form_view" />
+			<field name="model">product.template</field >
+			<field name="arch" type= "xml">
+				<field name="categ_id" position="after">
+					<!--<field name="is_beer" />-->
+				</field>
+				<page name="sales" position="after">
+					<page name="brewery" string="Informations"><!-- attrs="{'invisible': [('is_beer','=',False)]}" modifiers="{'invisible':[['is_beer','=',False]]}">-->
+					<group id="beer_infos">
+					<group id="beer_info">
+						<field name="abv" />
+						<field name="ibu" />
+					</group>
+					<group id="beer_flag">
+						<field name="gluten" />
+						<field name="is_bio" />
+						</group>
+						</group>
+					</page>
+				</page>
+				
+			</field>
+		</record>
+	</data>
+</openerp>
