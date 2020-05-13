@@ -9,6 +9,7 @@
 					<page name="brewery" string="Détails bière">
 						<group id="beer_infos">
 							<field name="brewery_is_beer" />
+							<field name="brewery_category" attrs="{'invisible': [('brewery_is_beer','=',False)]}" modifiers="{'invisible':[['brewery_is_beer','=',False]]}" />
 							<field name="brewery_abv_level" attrs="{'invisible': [('brewery_is_beer','=',False)]}" modifiers="{'invisible':[['brewery_is_beer','=',False]]}" />
 							<field name="brewery_ibu_level" attrs="{'invisible': [('brewery_is_beer','=',False)]}" modifiers="{'invisible':[['brewery_is_beer','=',False]]}" />
 							<field name="brewery_has_gluten" attrs="{'invisible': [('brewery_is_beer','=',False)]}" modifiers="{'invisible':[['brewery_is_beer','=',False]]}" />
@@ -19,5 +20,30 @@
 				</page>
 			</field>
 		</record>
+
+		<record id="brewery_beers_action" model= "ir.actions.act_window">
+			<field name="name">Les bières</field >
+			<field name="res_model">product.template</field >
+			<field name="view_mode">kanban,tree,form</field >
+			<field name="view_id" ref= "product.product_template_kanban_view" />
+			<field name="context">{"search_default_filter_to_sell":1}</field>
+			<field name="domain">[('brewery_is_beer','=',True)]</field>
+			<field name="help" type= "html">
+				<p class="oe_view_nocontent_create">Click to define a new product.</p>
+			</field>
+		</record>
+
+		<record id="brewery_styles_action" model= "ir.actions.act_window">
+			<field name="name">Les Styles</field >
+			<field name="res_model">product.brewery_beers_style</field >
+			<field name="view_mode">kanban,tree,form</field >
+			<field name="help" type= "html">
+				<p class="oe_view_nocontent_create">Click to define a new product.</p>
+			</field>
+		</record>
+
+		<menuitem id="brewery" parent="sale.sale_menu_root" sequence="12" name="Brasserie" />
+		<menuitem id="brewery_beers" parent="brewery" action="brewery_beers_action" sequence="1"/>
+		<menuitem id="brewery_styles" parent="brewery" action="brewery_styles_action" sequence="2"/>
 	</data>
 </openerp>

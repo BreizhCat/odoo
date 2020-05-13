@@ -7,7 +7,9 @@
    'summary':'Add some fields to products',
    'support':'yleroux@gmail.com',
    'depends' : ['sale'],
-   'data':['brewery_view.xml'],
+   'data':[
+      'brewery_view.xml',
+      'security/ir.model.access.csv'],
    'category':'Products',
    'website':'https://github.com/BreizhCat/odoo_brewery',
    'installable' : True,
